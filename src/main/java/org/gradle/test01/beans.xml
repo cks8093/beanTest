@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="score" class="org.gradle.test01.Score">
+		<property name="name" value="테스트"></property>
+		<property name="kor" value="12.03"></property>
+		<property name="eng" value="15.17"></property>
+		<property name="math" value="21.32"></property>
+	</bean>
+
+	<bean name="score2,score3,score4" class="org.gradle.test01.Score" />
+	<bean name="score-ok!" class="org.gradle.test01.Score" />
+</beans>

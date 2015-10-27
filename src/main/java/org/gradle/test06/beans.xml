@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 프로퍼티 -->
+	<bean id="spareTire" class="org.gradle.test06.Tire">
+		<property name="maker" value="Hyundai" />
+		<property name="spec">
+			<props>
+				<prop key="width">205</prop>
+				<prop key="ratio">65</prop>
+				<prop key="rim.diameter">14</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 프로퍼티(맵) -->
+	<bean id="car1" class="org.gradle.test06.Car">
+		<constructor-arg value="Avante" />
+		<constructor-arg>
+			<bean class="org.gradle.test06.Engine" p:maker="Hyundai" p:cc="1495" />
+		</constructor-arg>
+		<property name="options">
+			<map>
+				<entry>
+					<key>
+						<value>sunroof</value>
+					</key>
+					<value>yes</value>
+				</entry>
+				<entry key="airbag" value="dual" />
+				<entry key="sparetire">
+					<ref bean="spareTire" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- factory-method(static) -->
+	<bean id="hankookTire" class="org.gradle.test06.StaticTireFactory"
+		factory-method="createTire">
+		<constructor-arg value="Hankook" />
+	</bean>
+
+	<bean id="kumhoTire" class="org.gradle.test06.StaticTireFactory"
+		factory-method="createTire">
+		<constructor-arg value="Kumho" />
+	</bean>
+	
+	<!-- factory-bean(non static) -->
+	<bean id="tireFactory" class="org.gradle.test06.TireFactory"/>
+    
+	<bean id="hankookTireFactory" factory-bean="tireFactory" factory-method="createTire">
+		<constructor-arg value="Hankook" />
+	</bean>
+
+	<bean id="kumhoTireFactory" factory-bean="tireFactory" factory-method="createTire">
+		<constructor-arg value="Kumho" />
+	</bean>
+	
+	<!-- TireFactoryBean -->
+	<bean id="hankookTireBean" class="org.gradle.test06.TireFactoryBean">
+		<property name="maker" value="Hankook" />
+	</bean>
+
+  <bean id="kumhoTireBean" class="org.gradle.test06.TireFactoryBean">
+    <property name="maker" value="Kumho" />
+  </bean>
+</beans>
