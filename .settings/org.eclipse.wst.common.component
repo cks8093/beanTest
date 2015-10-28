@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="2.0">
-	<wb-module deploy-name="GradleTest">
-		<property name="context-root" value="GradleTest"/>
+	<wb-module deploy-name="beanTest">
+		<property name="context-root" value="beanTest"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.2.RELEASE/f384619756dc640498cfbb955352ca9546c4630d/spring-context-4.2.2.RELEASE.jar">
